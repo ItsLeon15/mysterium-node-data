@@ -1,0 +1,33 @@
+# Mysterium Node Data
+This project is a simple web application that displays data for Mysterium network nodes. It allows users to search and sort the data by various fields, such as City, Region, Country, Continent, ASN, ISP, and IP Type. The data is retrieved from a JSON file and displayed in a paginated table format.
+
+## Installation
+To install the project, follow these steps:
+
+1. Clone the repository to your local machine.
+2. Open a terminal window and navigate to the project directory.
+3. Run `npm install` to install the project dependencies.
+4. Run `npm start` to start the server.
+5. Open a web browser and navigate to http://localhost:3000 to view the app.
+
+## Usage
+Once you have the app running, you can use the search bar at the top of the page to search for specific nodes. You can also click on any of the table headers to sort the data by that column.
+
+The table is paginated, with 50 nodes displayed per page. You can navigate between pages using the page buttons at the bottom of the table.
+
+Technologies
+This project was built using the following technologies:
+
+- Node.js
+- Express.js
+- EJS
+- Bootstrap
+- Font Awesome
+
+## Future Improvements
+While this project was completed within a limited timeframe, there are several improvements that could be made in the future:
+
+- Implement better error handling and input validation.
+- Allow users to choose how many nodes are displayed per page.
+- Add functionality for exporting the data to a CSV or Excel file.
+- Add more data to the JSON file to make the app more useful.
