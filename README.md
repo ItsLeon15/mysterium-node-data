@@ -15,7 +15,7 @@ Once you have the app running, you can use the search bar at the top of the page
 
 The table is paginated, with 50 nodes displayed per page. You can navigate between pages using the page buttons at the bottom of the table.
 
-Technologies
+## Technologies
 This project was built using the following technologies:
 
 - Node.js
@@ -24,6 +24,9 @@ This project was built using the following technologies:
 - Bootstrap
 - Font Awesome
 
+## Data Source
+The data used in this project was provided by Mysterium Network which can be found [here](https://discovery.mysterium.network/api/v3/proposals). The data includes information on Mysterium nodes, such as their location, ISP, ASN, and IP type. All data, at the time of this project, was released publicly.
+
 ## Future Improvements
 While this project was completed within a limited timeframe, there are several improvements that could be made in the future:
 
@@ -31,3 +34,6 @@ While this project was completed within a limited timeframe, there are several i
 - Allow users to choose how many nodes are displayed per page.
 - Add functionality for exporting the data to a CSV or Excel file.
 - Add more data to the JSON file to make the app more useful.
+
+## Contributing and Feature Requests
+If you want to contribute to this project or have a feature request, please feel free to submit a pull request or open an issue. Any contributions or feedback are greatly appreciated!
