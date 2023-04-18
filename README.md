@@ -7,7 +7,7 @@ To install the project, follow these steps:
 1. Clone the repository to your local machine.
 2. Open a terminal window and navigate to the project directory.
 3. Run `npm install` to install the project dependencies.
-4. Run `npm start` to start the server.
+4. Run `node app.js` to start the server.
 5. Open a web browser and navigate to http://localhost:3000 to view the app.
 
 ## Usage
