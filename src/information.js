@@ -8,7 +8,6 @@ function Information() {
 	const [sortOrder, setSortOrder] = useState('asc');
 	const [currentPage, setCurrentPage] = useState(1);
 	const [numPages, setNumPages] = useState(1);
-	const [sortedData, setSortedData] = useState([]);
 	const rowsPerPage = 50;
 
 	useEffect(() => {
@@ -58,7 +57,7 @@ function Information() {
 			}
 		});
 		setTableData(sortedData);
-	}, [sortField, sortOrder]);
+	}, [sortField, sortOrder, tableData]);
 
 	const filteredData = tableData.filter((row) => {
 		for (let key in row) {
