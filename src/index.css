@@ -1,0 +1,142 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+body {
+  background-color: #333333;
+  color: #FFFFFF;
+  font-family: Arial, sans-serif;
+}
+
+#root {
+  margin: 0 100px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 36px;
+  margin: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #444444;
+  color: #FFFFFF;
+  font-size: 14px;
+  text-align: left;
+  margin-top: 20px;
+}
+
+th {
+  background-color: #222222;
+  color: #FFFFFF;
+  padding: 10px;
+  cursor: pointer;
+}
+
+th i {
+  margin-left: 10px;
+}
+
+th:hover {
+  background-color: #555555;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid #777777;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+.page-btn {
+  background-color: #222222;
+  border: none;
+  color: #FFFFFF;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.page-btn:hover {
+  background-color: #444444;
+}
+
+.active {
+  background-color: #666666;
+}
+
+form {
+  text-align: center;
+  margin-top: 20px;
+}
+
+form label {
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 10px;
+  margin-top: 20px;
+}
+
+form input {
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 20px;
+  background-color: #555555;
+  color: #FFFFFF;
+  width: 300px;
+}
+
+form button {
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 20px;
+  background-color: #222222;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.pagination {
+  margin-top: 20px;
+}
+
+#continent-header {
+  width: 100px;
+}
+
+#country-header {
+  width: 90px;
+}
+
+#region-header {
+  width: 155px;
+}
+
+#city-header {
+  width: 160px;
+}
+
+#asn-header {
+  width: 70px;
+}
+
+#isp-header {
+  width: 400px;
+}
+
+#ip-type-header {
+  width: 150px;
+}
+
+#provider-id-header {
+  width: 375px;
+}
