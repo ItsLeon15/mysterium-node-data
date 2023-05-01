@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/mysterium-node-data/static/css/main.cd60adfa.css",
+    "main.js": "/mysterium-node-data/static/js/main.abf4725b.js",
+    "static/js/787.91e7822a.chunk.js": "/mysterium-node-data/static/js/787.91e7822a.chunk.js",
+    "index.html": "/mysterium-node-data/index.html",
+    "main.cd60adfa.css.map": "/mysterium-node-data/static/css/main.cd60adfa.css.map",
+    "main.abf4725b.js.map": "/mysterium-node-data/static/js/main.abf4725b.js.map",
+    "787.91e7822a.chunk.js.map": "/mysterium-node-data/static/js/787.91e7822a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cd60adfa.css",
+    "static/js/main.abf4725b.js"
+  ]
+}
