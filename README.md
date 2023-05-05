@@ -10,6 +10,12 @@ To install the project, follow these steps:
 4. Run `npm start` to start the server.
 5. Open a web browser and navigate to http://localhost:3000 to view the app.
 
+## Updates
+
+|  Date Changed (dd/MM/yyyy)   | Content Changed |
+| ---------------------------- | --------------- |
+|        **05/05/2023**        | - Reformated the code into different files to improve readability <br> - Added Filtered Dropdown boxes |
+
 ## Usage
 Once you have the app running, you can use the search bar at the top of the page to search for specific nodes. You can also click on any of the table headers to sort the data by that column.
 
@@ -19,6 +25,7 @@ The table is paginated, with 50 nodes displayed per page. You can navigate betwe
 This project was built using the following technologies:
 
 - React
+- Prop Types
 - Font Awesome
 
 This project no longer uses node.js due to complications in rendering data.
