@@ -83,7 +83,32 @@ form label {
   margin-top: 20px;
 }
 
+.flex {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.mr-5 {
+  margin-right: 5px;
+}
+
+.ml-5 {
+  margin-left: 5px;
+}
+
 form input {
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 20px;
+  background-color: #555555;
+  color: #FFFFFF;
+  width: 300px;
+}
+
+.selectInput {
   font-size: 16px;
   padding: 10px;
   border-radius: 10px;
