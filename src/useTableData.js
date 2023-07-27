@@ -9,12 +9,21 @@ function useTableData() {
 	const [sortOrder, setSortOrder] = useState('asc');
 	const [currentPage, setCurrentPage] = useState(1);
 	const [numPages, setNumPages] = useState(1);
+	const [fullData, setFullData] = useState([]);
+
+	var proxy_url = 'https://cors-anywhere.herokuapp.com/';
+	var target_url = 'https://discovery.mysterium.network/api/v3/proposals';
+
+	async function setData() {
+		let resp = await fetch(`${proxy_url}${target_url}`);
+		let data = await resp.json();
+
+		setFullData(data);
+		setTableData(data);
+	};
 
 	useEffect(() => {
-		fetch('data.json')
-			.then((response) => response.json())
-			.then((data) => setTableData(data))
-			.catch((error) => console.error(error));
+		setData();
 	}, []);
 
 	useEffect(() => {
@@ -139,16 +148,10 @@ function useTableData() {
 
 	const handleIpTypeFilterChange = (selectedOption) => {
 		if (selectedOption === 'All') {
-			fetch('data.json')
-				.then((response) => response.json())
-				.then((data) => {
-					setTableData(data);
-					setIpTypeFilter('');
-					setSortField('');
-					setSortOrder('asc');
-					setCurrentPage(1);
-				})
-				.catch((error) => console.error(error));
+			setTableData(fullData);
+			setSortField('');
+			setSortOrder('asc');
+			setCurrentPage(1);
 		} else {
 			const filteredData = tableData.filter((row) => {
 				return row.location.ip_type.toLowerCase() === selectedOption.toLowerCase();
@@ -163,16 +166,11 @@ function useTableData() {
 
 	const handleCountryTypeFilterChange = (selectedOption) => {
 		if (selectedOption === 'All') {
-			fetch('data.json')
-				.then((response) => response.json())
-				.then((data) => {
-					setTableData(data);
-					setCountryTypeFilter('');
-					setSortField('');
-					setSortOrder('asc');
-					setCurrentPage(1);
-				})
-				.catch((error) => console.error(error));
+			setTableData(fullData);
+			setCountryTypeFilter('');
+			setSortField('');
+			setSortOrder('asc');
+			setCurrentPage(1);
 		} else {
 			const filteredData = tableData.filter((row) => {
 				return row.location.country.toLowerCase() === selectedOption.toLowerCase();
