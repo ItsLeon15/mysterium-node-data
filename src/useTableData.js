@@ -1,5 +1,53 @@
 import { useEffect, useState } from 'react';
 
+const FALLBACK_DATA_URL = `https://corsproxy.io/?${encodeURIComponent(
+	'https://discovery.mysterium.network/api/v3/proposals',
+)}`;
+
+const fetchJson = async (url) => {
+	const response = await fetch(url, {
+		headers: {
+			Accept: 'application/json'
+		}
+	});
+	const contentType = response.headers.get('content-type') || '';
+
+	if (!response.ok) {
+		throw new Error(`Request failed with status ${response.status}`);
+	}
+
+	const isJsonContent = contentType.includes('application/json') || contentType.includes('text/json');
+	if (isJsonContent) {
+		return response.json();
+	}
+
+	const bodyText = await response.text();
+	try {
+		return JSON.parse(bodyText);
+	} catch (error) {
+		const bodyPreview = bodyText.slice(0, 200);
+		throw new Error(`Unexpected content type: ${contentType}; preview: ${bodyPreview}`);
+	}
+};
+
+const loadData = async () => {
+	const sources = [FALLBACK_DATA_URL];
+
+	for (let i = 0; i < sources.length; i += 1) {
+		try {
+			return await fetchJson(sources[i]);
+		} catch (error) {
+			const isLast = i === sources.length - 1;
+			if (isLast) {
+				throw error;
+			}
+			console.error(`Data fetch failed for ${sources[i]}; trying next source.`, error);
+		}
+	}
+
+	return [];
+};
+
 function useTableData() {
 	const [tableData, setTableData] = useState([]);
 	const [searchQuery, setSearchQuery] = useState('');
@@ -11,10 +59,12 @@ function useTableData() {
 	const [numPages, setNumPages] = useState(1);
 
 	useEffect(() => {
-		fetch('data.json')
-			.then((response) => response.json())
+		loadData()
 			.then((data) => setTableData(data))
-			.catch((error) => console.error(error));
+			.catch((error) => {
+				console.error('Primary data fetch attempts failed.', error);
+				setTableData([]);
+			});
 	}, []);
 
 	useEffect(() => {
@@ -139,8 +189,7 @@ function useTableData() {
 
 	const handleIpTypeFilterChange = (selectedOption) => {
 		if (selectedOption === 'All') {
-			fetch('data.json')
-				.then((response) => response.json())
+			loadData()
 				.then((data) => {
 					setTableData(data);
 					setIpTypeFilter('');
@@ -163,8 +212,7 @@ function useTableData() {
 
 	const handleCountryTypeFilterChange = (selectedOption) => {
 		if (selectedOption === 'All') {
-			fetch('data.json')
-				.then((response) => response.json())
+			loadData()
 				.then((data) => {
 					setTableData(data);
 					setCountryTypeFilter('');

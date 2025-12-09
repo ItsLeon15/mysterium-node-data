@@ -1,5 +1,7 @@
 # Mysterium Node Data
-This project is a simple web application that displays data for Mysterium network nodes. It allows users to search and sort the data by various fields, such as City, Region, Country, Continent, ASN, ISP, and IP Type. The data is retrieved from a JSON file and displayed in a paginated table format.
+This project is a simple web application that displays data for Mysterium network nodes.
+It allows users to search and sort the data by various fields, such as City, Region, Country, Continent, ASN, ISP, and IP Type.
+The data is pulled directly from the Mysterium Discovery API (proxied) and displayed in a paginated table format.
 
 ## Installation
 To install the project, follow these steps:
