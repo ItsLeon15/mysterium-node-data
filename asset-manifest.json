@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/mysterium-node-data/static/css/main.0215c9f2.css",
-    "main.js": "/mysterium-node-data/static/js/main.00fba2d8.js",
-    "static/js/787.91e7822a.chunk.js": "/mysterium-node-data/static/js/787.91e7822a.chunk.js",
+    "main.js": "/mysterium-node-data/static/js/main.0ed84ef7.js",
+    "static/js/453.a27b3d3b.chunk.js": "/mysterium-node-data/static/js/453.a27b3d3b.chunk.js",
     "index.html": "/mysterium-node-data/index.html",
     "main.0215c9f2.css.map": "/mysterium-node-data/static/css/main.0215c9f2.css.map",
-    "main.00fba2d8.js.map": "/mysterium-node-data/static/js/main.00fba2d8.js.map",
-    "787.91e7822a.chunk.js.map": "/mysterium-node-data/static/js/787.91e7822a.chunk.js.map"
+    "main.0ed84ef7.js.map": "/mysterium-node-data/static/js/main.0ed84ef7.js.map",
+    "453.a27b3d3b.chunk.js.map": "/mysterium-node-data/static/js/453.a27b3d3b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0215c9f2.css",
-    "static/js/main.00fba2d8.js"
+    "static/js/main.0ed84ef7.js"
   ]
 }
