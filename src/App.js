@@ -19,7 +19,8 @@ function App() {
 		numPages,
 		ipTypeFilter,
 		countryTypeFilter,
-		tableData,
+		ipTypeOptions,
+		countryOptions,
 	} = useTableData();
 
 	return (
@@ -40,13 +41,13 @@ function App() {
 					</div>
 					<FilterDropdown
 						label="IP Type"
-						options={[...new Set(tableData.map((row) => row.location.ip_type))]}
+						options={ipTypeOptions}
 						selectedOption={ipTypeFilter}
 						onSelectOption={handleIpTypeFilterChange}
 					/>
 					<FilterDropdown
 						label="Country"
-						options={[...new Set(tableData.map((row) => row.location.country))]}
+						options={countryOptions}
 						selectedOption={countryTypeFilter}
 						onSelectOption={handleCountryTypeFilterChange}
 					/>
