@@ -26,7 +26,7 @@ function App() {
 		<>
 			<h1>Mysterium Node Data</h1>
 			<form method="get">
-				<div class="flex">
+				<div className="flex">
 					<div className="mr-5">
 						<label htmlFor="search">Search:</label>
 						<input
