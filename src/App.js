@@ -1,10 +1,12 @@
 import React from 'react';
-import useTableData from './useTableData';
-import Pagination from './Pagination';
 import FilterDropdown from './FilterDropdown';
+import Pagination from './Pagination';
+import useTableData from './useTableData';
 import './index.css';
 
 function App() {
+	const [now, setNow] = React.useState(Date.now());
+
 	const {
 		handleSort,
 		handleSearchChange,
@@ -21,11 +23,47 @@ function App() {
 		countryTypeFilter,
 		ipTypeOptions,
 		countryOptions,
+		lastUpdated,
 	} = useTableData();
+
+	React.useEffect(() => {
+		const id = setInterval(() => setNow(Date.now()), 1000);
+		return () => clearInterval(id);
+	}, []);
+
+	const formatRelativeTime = (date, currentTimestamp) => {
+		if (!date) return '';
+
+		const rtf = new Intl.RelativeTimeFormat(undefined, { numeric: 'auto' });
+		const units = [
+			{ unit: 'year', ms: 1000 * 60 * 60 * 24 * 365 },
+			{ unit: 'month', ms: 1000 * 60 * 60 * 24 * 30 },
+			{ unit: 'week', ms: 1000 * 60 * 60 * 24 * 7 },
+			{ unit: 'day', ms: 1000 * 60 * 60 * 24 },
+			{ unit: 'hour', ms: 1000 * 60 * 60 },
+			{ unit: 'minute', ms: 1000 * 60 },
+			{ unit: 'second', ms: 1000 },
+		];
+
+		const diffMs = date.getTime() - currentTimestamp;
+		for (let i = 0; i < units.length; i += 1) {
+			const { unit, ms } = units[i];
+			if (Math.abs(diffMs) >= ms || i === units.length - 1) {
+				const value = Math.round(diffMs / ms);
+				return rtf.format(value, unit);
+			}
+		}
+		return '';
+	};
+
+	const relativeUpdatedText = lastUpdated ? formatRelativeTime(lastUpdated, now) : '';
 
 	return (
 		<>
 			<h1>Mysterium Node Data</h1>
+			<p style={{ marginTop: '-10px', marginBottom: '15px', textAlign: 'center' }}>
+				{lastUpdated ? `Data fetched: ${relativeUpdatedText}` : 'Loading data...'}
+			</p>
 			<form method="get">
 				<div className="flex">
 					<div className="mr-5">
@@ -97,7 +135,8 @@ function App() {
 						<th id="provider-id-header" onClick={() => handleSort('provider_id')}>
 							Provider ID
 							{sortField === 'provider_id' && sortOrder === 'asc' && <i className="fas fa-sort-up"></i>}
-							{sortField === 'provider_id' && sortOrder === 'desc' && <i className="fas fa-sort-down"></i>}
+							{sortField === 'provider_id' && sortOrder === 'desc' &&
+								<i className="fas fa-sort-down"></i>}
 							{sortField !== 'provider_id' && <i className="fas fa-sort"></i>}
 						</th>
 					</tr>

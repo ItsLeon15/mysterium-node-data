@@ -56,10 +56,14 @@ function useTableData() {
 	const [sortField, setSortField] = useState('');
 	const [sortOrder, setSortOrder] = useState('asc');
 	const [currentPage, setCurrentPage] = useState(1);
+	const [lastUpdated, setLastUpdated] = useState(null);
 
 	useEffect(() => {
 		loadData()
-			.then((data) => setTableData(data))
+			.then((data) => {
+				setTableData(data);
+				setLastUpdated(new Date());
+			})
 			.catch((error) => {
 				console.error('Primary data fetch attempts failed.', error);
 				setTableData([]);
@@ -205,6 +209,7 @@ function useTableData() {
 		tableData,
 		ipTypeOptions,
 		countryOptions,
+		lastUpdated,
 	};
 }
 
